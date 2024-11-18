@@ -122,7 +122,7 @@ namespace XivVoices {
         public Plugin PluginReference { get; internal set; }
         public event EventHandler OnMoveFailed;
 
-        private void ClientState_Logout() {
+        private void ClientState_Logout(int type, int code) {
         }
 
         private void ClientState_Login() {
@@ -1172,6 +1172,11 @@ namespace XivVoices {
             {
                 ImGui.Columns(2, "ChangelogColumns", false);
                 ImGui.SetColumnWidth(0, 350);
+
+                if (ImGui.CollapsingHeader("Version 0.3.0.3", ImGuiTreeNodeFlags.DefaultOpen))
+                {
+                    ImGui.Bullet(); ImGui.TextWrapped("Added support for 7.1");
+                }
 
                 if (ImGui.CollapsingHeader("Version 0.3.0.2", ImGuiTreeNodeFlags.DefaultOpen))
                 {
