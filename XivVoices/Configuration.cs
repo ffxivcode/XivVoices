@@ -20,6 +20,7 @@ namespace XivVoices
         public bool LipsyncEnabled { get; set; } = true;
         public bool SkipEnabled { get; set; } = true;
         public bool AdvanceTalkEnabled { get; set; } = true;
+        public bool HideTalkEnabled { get; set; } = false;
 
         // Chat Settings
         public bool SayEnabled { get; set; } = true;
@@ -89,6 +90,7 @@ namespace XivVoices
                         this.LipsyncEnabled = loadedConfig.LipsyncEnabled;
                         this.SkipEnabled = loadedConfig.SkipEnabled;
                         this.AdvanceTalkEnabled = loadedConfig.AdvanceTalkEnabled;
+                        this.HideTalkEnabled = loadedConfig.HideTalkEnabled;
                         this.SayEnabled = loadedConfig.SayEnabled;
                         this.TellEnabled = loadedConfig.TellEnabled;
                         this.ShoutEnabled = loadedConfig.ShoutEnabled;

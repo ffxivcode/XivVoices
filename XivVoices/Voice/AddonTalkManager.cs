@@ -21,6 +21,18 @@ namespace XivVoices.Voice {
             return addonTalk != null && addonTalk->AtkUnitBase.IsVisible;
         }
 
+        public unsafe bool Hide()
+        {
+            var addonTalk = GetAddonTalk();
+            return addonTalk != null && (addonTalk->AtkUnitBase.IsVisible = false) == false;
+        }
+
+        public unsafe bool Show()
+        {
+            var addonTalk = GetAddonTalk();
+            return addonTalk != null && (addonTalk->AtkUnitBase.IsVisible = true) == true;
+        }
+
         private unsafe AddonTalk* GetAddonTalk() {
             return (AddonTalk*)Address.ToPointer();
         }

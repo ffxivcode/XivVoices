@@ -546,6 +546,18 @@ namespace XivVoices {
                 SetKeyValue(VirtualKey.NUMPAD0, KeyStateFlags.Pressed);
         }
 
+        public void HideTalk()
+        {
+            if (config.HideTalkEnabled)
+                _addonTalkManager.Hide();
+        }
+
+        public void ShowTalk()
+        {
+            if (config.HideTalkEnabled)
+                _addonTalkManager.Show();
+        }
+
         private unsafe static void SetKeyValue(VirtualKey virtualKey, KeyStateFlags keyStateFlag) => (*(int*)(Service.SigScanner.Module.BaseAddress + Marshal.ReadInt32(Service.SigScanner.ScanText("48 8D 0C 85 ?? ?? ?? ?? 8B 04 31 85 C2 0F 85") + 0x4) + (4 * (*(byte*)(Service.SigScanner.Module.BaseAddress + Marshal.ReadInt32(Service.SigScanner.ScanText("0F B6 94 33 ?? ?? ?? ?? 84 D2") + 0x4) + (int)virtualKey))))) = (int)keyStateFlag;
 
         public void TriggerLipSync(ICharacter character, string length)

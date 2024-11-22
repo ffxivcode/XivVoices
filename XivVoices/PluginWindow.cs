@@ -869,6 +869,16 @@ namespace XivVoices {
                 ImGui.SameLine();
                 ImGui.Text("Advance Talk Addon Enabled");
 
+                // HideTalkEnabled
+                var hideTalkEnabled = this.Configuration.HideTalkEnabled;
+                if (ImGui.Checkbox("##hideTalkEnabled", ref hideTalkEnabled))
+                {
+                    this.configuration.HideTalkEnabled = hideTalkEnabled;
+                    needSave = true;
+                };
+                ImGui.SameLine();
+                ImGui.Text("Hide Talk Addon Enabled");
+
                 // END
 
                 ImGui.Columns(1);
